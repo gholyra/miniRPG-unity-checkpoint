@@ -14,6 +14,9 @@ public abstract class BaseEnemy : MonoBehaviour
     [Header("Base Enemy properties")]
     [SerializeField] protected float speed;
     [SerializeField] protected int damagePower;
+    [SerializeField] protected int xpGiven;
+    
+    private bool hasDied;
 
     protected virtual void Awake()
     {
@@ -22,7 +25,7 @@ public abstract class BaseEnemy : MonoBehaviour
         detector = GetComponent<Detector>();
         collider = GetComponent<Collider>();
         health = GetComponent<Health>();
-        //Método de uma linha só (Lambda)
+        // MÃ©todo de uma linha sÃ³ (Lambda)
         health.OnHurt += () => animator.SetTrigger("hurt");
         health.OnDie += HandleDeath;
     }
@@ -38,6 +41,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         animator.SetTrigger("die");
         collider.enabled = false;
+        hasDied = true;
         StartCoroutine(DestroyEnemyInSeconds(2));
     }
 
