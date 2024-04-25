@@ -42,6 +42,7 @@ public abstract class BaseEnemy : MonoBehaviour
         animator.SetTrigger("die");
         collider.enabled = false;
         hasDied = true;
+        XPSystem.Instance.GainExp(xpGiven);
         StartCoroutine(DestroyEnemyInSeconds(2));
     }
 

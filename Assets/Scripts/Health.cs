@@ -10,6 +10,16 @@ public class Health : MonoBehaviour
 
     private bool isDead;
 
+    public float GetHealth()
+    {
+        return this.health;
+    }
+
+    public void IncreaseHealth(float lifeSum)
+    {
+        health += lifeSum;
+    }
+    
     public void TakeDamage(int damageTakenValue)
     {
         health -= damageTakenValue;

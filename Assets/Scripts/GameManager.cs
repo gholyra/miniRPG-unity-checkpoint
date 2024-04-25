@@ -16,6 +16,23 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+    }
+
+    public void PauseGame()
+    {
+        UIManager.Instance.SetPauseComponent(true);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+    }
+
+    public void UnpauseGame()
+    {
+        UIManager.Instance.SetPauseComponent(false);
+        Time.timeScale = 1;
         Cursor.visible = false;
     }
 }

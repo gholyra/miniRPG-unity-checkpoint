@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 moveDirection;
 
-
     private void Awake()
     {
         initialVelocity = velocity;
@@ -29,7 +28,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.inputManager.OnParry += HandleParry;
         GameManager.Instance.inputManager.OnRun += HandleRunVelocity;
     }
-
+    
     private void FixedUpdate()
     {
         HandleMove();
